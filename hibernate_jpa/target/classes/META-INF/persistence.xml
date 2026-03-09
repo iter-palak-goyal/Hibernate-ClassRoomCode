@@ -1,11 +1,11 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
              version="3.0">
 
-	<persistence-unit name="Student">
+	<persistence-unit name="Employee">
 
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-		<class>com.capgemini.hibernate_jpa.Student</class>
+		<class>com.capgemini.hibernate_jpa.Employee</class>
 
 		<properties>
 
@@ -13,7 +13,7 @@
 				value="com.mysql.cj.jdbc.Driver"/>
 
 			<property name="jakarta.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/Student_database"/>
+				value="jdbc:mysql://localhost:3306/Employee_database"/>
 
 			<property name="jakarta.persistence.jdbc.user"
 				value="root"/>
