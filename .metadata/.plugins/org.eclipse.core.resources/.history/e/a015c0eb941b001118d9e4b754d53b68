@@ -1,0 +1,14 @@
+package com.capgemini.hibernate_jpa.main;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+public class JavaApp {
+	public static void execution() {
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Student");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		System.out.println(entityManager);
+		System.out.println("Hello World!");
+	}
+}

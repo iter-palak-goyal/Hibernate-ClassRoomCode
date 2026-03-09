@@ -1,0 +1,25 @@
+package com.capgemini.hibernate_jpa.main;
+
+import com.capgemini.hibernate_jpa.Student;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+
+public class JavaApp {
+	public static void execution() {
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Student");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();	
+		
+		Student std = new Student();
+		std.setId(1);
+		std.setName("Palak");
+		std.setEmail("Palak@gmail.com");
+		std.setContactNumber(8529352892);
+		
+		System.out.println("Hello World!");
+	}
+}

@@ -1,0 +1,5 @@
+package com.capgemini.hibernate_jpa.main;
+
+public class Main {
+
+}

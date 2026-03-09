@@ -1,0 +1,66 @@
+package com.capgemini.hibernate_jpa.main;
+
+import com.capgemini.hibernate_jpa.Student;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+
+public class JavaApp {
+	public static void execution() {
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Student");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();	
+		
+		Student std1 = new Student();
+		std1.setId(1);
+		std1.setName("Palak");
+		std1.setEmail("Palak@gmail.com");
+		std1.setContactNumber(765338995L);
+		
+		Student std2 = new Student();
+		std2.setId(2);
+		std2.setName("PalakG");
+		std2.setEmail("PalakG@gmail.com");
+		std2.setContactNumber(765363564L);
+		
+		//to create data to table
+        //entityManager.persist(std2);
+		
+		
+		
+		//to read and find 
+		Student student = entityManager.find(Student.class, 2);
+		if(student != null) {
+			System.out.println(student);
+		}
+		else {
+			System.out.println("Student data is not in the table!!!");
+		}
+		
+		//fetch and update
+		if(student != null) {
+			student.setEmail("PalakGoyal@gmail.com");
+			student.setContactNumber(45678892L);
+			entityManager.merge(student);
+			System.out.println("Student data updated successfully");
+		}
+		else {
+			System.out.println("Student data is not in the table!!!");
+		}
+		
+		
+		Student data = entityManager.find(Student.class, 1);
+		entityManager.remove(data);
+		
+		
+		entityTransaction.commit();
+		entityManager.close();
+		
+		
+		
+		System.out.println("Hello World!");
+	}
+}
